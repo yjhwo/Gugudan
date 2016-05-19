@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.estsoft.gugudan.MainActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gameName"
+        android:id="@+id/txt_GameName"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="130dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameStart"
+        android:textColor="#000000"
+        android:id="@+id/btn_gameStart"
+        android:layout_below="@+id/txt_GameName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Record"
+        android:textColor="#000000"
+        android:id="@+id/btn_record"
+        android:layout_below="@+id/btn_gameStart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help"
+        android:textColor="#000000"
+        android:id="@+id/btn_help"
+        android:layout_below="@+id/btn_record"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+</RelativeLayout>

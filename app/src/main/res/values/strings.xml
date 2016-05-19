@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Gugudan</string>
+    <string name="gameName">구구단 파이터!</string>
+    <string name="gameStart">게임시작</string>
+    <string name="Record">기록</string>
+    <string name="help">도움말</string>
+
+    <string name="record_title">최신 기록</string>
+
+    <string name="help_title">구구단 파이터란?</string>
+    <string name="help_desc">...게임 설명...</string>
+
+</resources>
