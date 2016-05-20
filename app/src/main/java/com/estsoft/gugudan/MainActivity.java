@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_gameStart:
                 intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.btn_record:
                 intent = new Intent(MainActivity.this, RecordActivity.class);
