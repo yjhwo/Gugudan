@@ -27,6 +27,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private static int ansPosition;                 // 정답 위치
     private static int ansNum = 0;                  // 정답 개수
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +76,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Button btn = (Button)v;                                         // 클릭된 뷰를 버튼으로 받아옴
 
         for(Button b : btnList){
-            if(btnList[ansPosition-1] == btn){                         // 클릭된 버튼
+            if(btnList[ansPosition] == btn){                         // 클릭된 버튼
                 Toast.makeText(getApplicationContext(),"정답입니다",Toast.LENGTH_SHORT).show();
                 txtAnswer.setText(++ansNum+"/10");
 
@@ -102,8 +104,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         Random r = new Random();
 
-        int random1 = r.nextInt(8)+1;            // 1~9
-        int random2 = r.nextInt(8)+1;
+        int random1 = r.nextInt(7)+2;           // 2~9 , (예외 1,1 나올 경우 방지하기 위해)
+        Log.e("random1",random1+"");
+        int random2 = r.nextInt(8)+1;           // 1~9
+        Log.e("random2",random2+"");
         int ans = random1 * random2;
         Log.e("ans:",ans+"");
 
@@ -113,66 +117,57 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         ansPosition = r.nextInt(8)+1;
         Log.e("ansPosition:",ansPosition+"");
 
-        List<Integer> wrongList = new ArrayList<Integer>();
+        // 버튼에 놓을 수 list 생성
+        List<Integer> wrongList = new ArrayList<Integer>(18);
         for(int i=1; i<=9; i++){
-            wrongList.add(random1*i);
-            wrongList.add(random2*i);
-            wrongList.add((random2+2)*i);
+            boolean chk = true;
+
+            int n1 = random1*i;
+            Log.e("n1",n1+"");
+            int n2 = random2*i;
+            Log.e("n2",n2+"");
+
+            if(i==1) {
+                wrongList.add(n1);
+                wrongList.add(n2);
+                continue;
+            }
+
+            for(int c=0; c<wrongList.size(); c++){            // 중복 제거
+                if( (n1 == wrongList.get(c)) || n1 == ans) {
+                    Log.e("if1",n1+"");
+                    chk = false;
+                    continue;
+                }
+
+                if((n2 == wrongList.get(c)) || (n2 == n1) || n2 == ans) {
+                    Log.e("if2",n2+"");
+                    chk = false;
+                    continue;
+                }
+            }
+
+            if(chk) {
+                wrongList.add(n1);
+                wrongList.add(n2);
+            }
+
         }
         Collections.shuffle(wrongList);
+
         for (int i=0; i<wrongList.size(); i++){
             Log.e(i+"",wrongList.get(i)+"");
         }
 
+        // 버튼에 배치
+        for(int i=0; i<btnList.length; i++){
+            if(ansPosition == i){
+                btnList[i].setText(ans+"");                         // 정답
+                continue;
+            }
 
-//        for(int i=0; i<btnList.length; i++){
-//            if(ansPosition == i){
-//                btnList[i-1].setText(ans+"");                         // 정답
-//            }
-//
-//            int num = wrongList.get(i);
-//            for(int j=0; j<i; j++){
-//                if(num == wrongAnswer[i]){
-//                    num = wrongList.get(i+1);                         // 10은 임의의 값
-//                }
-//            }
-//
-//            wrongAnswer[i] = num;
-//            btnList[i].setText(num+"");
-//        }
-
-
-// ----
-//        int[] wrongAnswer = new int[15];
-//        btnList[ansPosition].setText(ans+"");                         // 정답
-//        wrongAnswer[0] = ans;
-//
-//        int cnt = 1, idx = 0;
-//        while(cnt  <= 9){
-//            if((cnt-1) == ansPosition){
-//               cnt++;
-//               continue;
-//            }
-//
-//            int num = wrongList.get(idx);
-//            Log.e("getNum",num+"");
-//            for(int i=0; i<cnt; i++){
-//                Log.e("통과1",num+":"+wrongAnswer[i]+":"+idx+":"+cnt);
-//                if(num == wrongAnswer[i]){
-//                    idx++;
-//                    num = wrongList.get(idx);
-//                    cnt = 1;
-//                    Log.e("통과2",idx+"");
-//                    continue;
-//                }
-//            }
-//
-//            btnList[cnt-1].setText(num+"");
-//            wrongAnswer[cnt] = num;
-//            cnt++;
-//            idx++;
-//        }
-// <<<<<< 마저 고치기
+            btnList[i].setText(wrongList.get(i)+"");
+        }
 
     }
 
