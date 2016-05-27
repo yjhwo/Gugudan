@@ -7,11 +7,20 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private static boolean CHK_SPLASH = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if( CHK_SPLASH ){
+            // Splash
+            Intent intent = new Intent(this, SplashActivity.class);
+            startActivity(intent);
+            CHK_SPLASH = false;
+        }
+        setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
+
 
         findViewById(R.id.btn_gameStart).setOnClickListener(this);
         findViewById(R.id.btn_record).setOnClickListener(this);

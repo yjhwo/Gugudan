@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/record_title"
         android:textSize="40sp"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:id="@+id/txt_recordTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

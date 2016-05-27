@@ -11,39 +11,45 @@
         android:layout_height="wrap_content"
         android:text="@string/gameName"
         android:id="@+id/txt_GameName"
-        android:textSize="38sp"
-        android:textColor="#000000"
+        android:textSize="43sp"
+        android:textColor="#fff"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp" />
+        android:layout_marginTop="120dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/gameStart"
         android:textColor="#000000"
+        android:textSize="17sp"
         android:id="@+id/btn_gameStart"
         android:layout_below="@+id/txt_GameName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:background="@drawable/selectable_dialog_lbutton_bottom_round"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Record"
         android:textColor="#000000"
+        android:textSize="17sp"
         android:id="@+id/btn_record"
         android:layout_below="@+id/btn_gameStart"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:background="@drawable/selectable_dialog_lbutton_bottom_round"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/help"
         android:textColor="#000000"
+        android:textSize="17sp"
         android:id="@+id/btn_help"
         android:layout_below="@+id/btn_record"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:background="@drawable/selectable_dialog_lbutton_bottom_round"/>
 </RelativeLayout>

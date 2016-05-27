@@ -22,11 +22,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public static Activity GameActivity;
 
     private Timer timer;
+    private static final int TIME_LIMIT = 5;
     private Button[] btnList = new Button[9];
     private TextView txtNum1, txtNum2, txtAnswer, txtTime;
     private static int ansPosition;                 // 정답 위치
     private static int ansNum = 0;                  // 정답 개수
-
 
 
     @Override
@@ -52,6 +52,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+
+        txtAnswer.setText("0");             // 초기화
+        ansNum = 0;
 
         guguTest();
         timer = new Timer();
@@ -106,7 +109,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         int random1 = r.nextInt(7)+2;           // 2~9 , (예외 1,1 나올 경우 방지하기 위해)
         Log.e("random1",random1+"");
-        int random2 = r.nextInt(8)+1;           // 1~9
+        int random2 = r.nextInt(8)+1;
         Log.e("random2",random2+"");
         int ans = random1 * random2;
         Log.e("ans:",ans+"");
@@ -124,7 +127,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             int n1 = random1*i;
             Log.e("n1",n1+"");
-            int n2 = random2*i;
+            int n2 = ( random1==random2 ? (random1+10)*i: random2*i );
             Log.e("n2",n2+"");
 
             if(i==1) {
@@ -177,7 +180,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void run() {
-            if(++seconds > 30){
+            if(++seconds > TIME_LIMIT){
                 timer.cancel();
 
                 Intent intent = new Intent(GameActivity.this, AlertActivity.class);

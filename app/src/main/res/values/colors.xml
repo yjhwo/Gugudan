@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorMain">#2196F3</color>
+
+    <color name="bg_color_dialog_transparent">#AA000000</color>
+    <color name="bg_color_dialog">#C5CAE9</color>
+    <color name="text_color_preference_label">#000000</color>
+    <color name="text_color_preference_item_label">#999999</color>
+    <color name="text_color_prefbox_button_normal">#999999</color>
+    <color name="text_color_prefbox_button_pressed">#FFFFFF</color>
+    <color name="bg_color_preference_box">#FFFFFF</color>
+    <color name="line_color_preference_box">#d2d2d2</color>
+    <color name="text_color_dialog_button">#000000</color>
+    <color name="text_color_dialog_button_pressed">#FFFFFF</color>
+    <color name="outline_color_dialog_button">#E0E0E0</color>
+    <color name="bg_color_dialog_button">#FFF9C4</color>
+    <color name="bg_color_button_pressed">#FFE0B2</color>
+
 </resources>
